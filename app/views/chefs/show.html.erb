@@ -1,0 +1,17 @@
+<h1>Chef <%= @chef.name %></h1>
+
+<p>Chef's dishes: </p>
+<ul>
+  <% @chef.dishes.each do |dish| %>
+    <li><%= dish.name %></li>
+  <% end %>
+</ul>
+
+<%= form_with url: dish_path(:dish_id), method: :patch, local: true do |form| %>
+  <%= form.label :dish_id %>
+  <%= form.number_field :dish_id %>
+  <%= form.hidden_field :chef_id, value: @chef.id %>
+  <%= form.submit "Add Dish"%>
+<% end %>
+
+<%= link_to "Chef #{@chef.name}'s Ingredients", "/chefs/#{@chef.id}/ingredients" %>
