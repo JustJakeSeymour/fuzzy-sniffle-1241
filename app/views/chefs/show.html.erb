@@ -13,3 +13,5 @@
   <%= form.hidden_field :chef_id, value: @chef.id %>
   <%= form.submit "Add Dish"%>
 <% end %>
+
+<%= link_to "Chef #{@chef.name}'s Ingredients", "/chefs/#{@chef.id}/ingredients" %>
