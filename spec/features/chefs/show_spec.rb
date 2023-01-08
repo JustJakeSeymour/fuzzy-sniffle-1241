@@ -9,9 +9,11 @@ RSpec.describe "Chef Show" do
   let!(:ingredient1) {create(:ingredient)}
   let!(:ingredient2) {create(:ingredient)}
   let!(:ingredient3) {create(:ingredient)}
+  let!(:ingredient4) {create(:ingredient)}
   let!(:dish_ingredient1) {create(:dish_ingredient, dish_id: dish1.id, ingredient_id: ingredient1.id)}
   let!(:dish_ingredient2) {create(:dish_ingredient, dish_id: dish1.id, ingredient_id: ingredient2.id)}
   let!(:dish_ingredient3) {create(:dish_ingredient, dish_id: dish2.id, ingredient_id: ingredient3.id)}
+  let!(:dish_ingredient4) {create(:dish_ingredient, dish_id: dish3.id, ingredient_id: ingredient3.id)}
   
   describe "User Story 2" do
     it "displays information" do
