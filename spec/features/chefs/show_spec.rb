@@ -5,7 +5,7 @@ RSpec.describe "Chef Show" do
   let!(:chef2) {create(:chef)}
   let!(:dish1) {create(:dish, chef_id: chef1.id)}
   let!(:dish2) {create(:dish, chef_id: chef1.id)}
-  let!(:dish3) {create(:dish, chef_id: chef2.id)}
+  let!(:dish3) {create(:dish, id: 10, chef_id: chef2.id)}
   let!(:ingredient1) {create(:ingredient)}
   let!(:ingredient2) {create(:ingredient)}
   let!(:ingredient3) {create(:ingredient)}
@@ -33,11 +33,11 @@ RSpec.describe "Chef Show" do
       expect(page).to_not have_content(dish3.name)
       
       # and I see a form to add an existing dish to that chef
-      expect(page).to have_form("Add Dish")
+      expect(page).to have_field("Dish")
       # When I fill in the form with the ID of a dish that exists in the database
-      fill_in("Add Dish").with(dish3.id)
+      fill_in("Dish", with: dish3.id)
       # And I click Submit
-      click_button "Submit"
+      click_button "Add Dish"
       # Then I am redirected to that chef's show page
       expect(current_path).to eq chef_path(chef1.id)
       
