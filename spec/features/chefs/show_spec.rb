@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe "Chef Show" do
+  let!(:chef1) {create(:chef)}
+  let!(:chef2) {create(:chef)}
+  let!(:dish1) {create(:dish, chef_id: chef1.id)}
+  let!(:dish2) {create(:dish, chef_id: chef1.id)}
+  let!(:dish3) {create(:dish, chef_id: chef2.id)}
+  let!(:ingredient1) {create(:ingredient)}
+  let!(:ingredient2) {create(:ingredient)}
+  let!(:ingredient3) {create(:ingredient)}
+  let!(:dish_ingredient1) {create(:dish_ingredient, dish_id: dish1.id, ingredient_id: ingredient1.id)}
+  let!(:dish_ingredient2) {create(:dish_ingredient, dish_id: dish1.id, ingredient_id: ingredient2.id)}
+  let!(:dish_ingredient3) {create(:dish_ingredient, dish_id: dish2.id, ingredient_id: ingredient3.id)}
+  
   describe "User Story 2" do
     it "displays information" do
       # When I visit a chef's show page
