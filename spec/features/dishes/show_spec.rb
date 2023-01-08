@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Dish Show" do
-  let!(:dish1) {create(:dish)}
-  let!(:dish2) {create(:dish)}
+  let!(:chef1) {create(:chef, name: "Gustau")}
+  let!(:chef2) {create(:chef, name: "Sokich")}
+  let!(:dish1) {create(:dish, chef_id: chef1.id)}
+  let!(:dish2) {create(:dish, chef_id: chef2.id)}
   let!(:ingredient1) {create(:ingredient)}
   let!(:ingredient2) {create(:ingredient)}
   let!(:ingredient3) {create(:ingredient)}

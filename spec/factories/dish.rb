@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :dish do
-    chef
+    chef { nil }
     name { Faker::Food.dish }
     description { Faker::Food.description }
   end
