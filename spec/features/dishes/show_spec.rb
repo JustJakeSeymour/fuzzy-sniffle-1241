@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Dish Show" do
+  let!(:dish1) {create(:dish)}
+  let!(:dish2) {create(:dish)}
+  
   describe "User Story 1" do
     it "displays information" do
       # When I visit a dish's show page
